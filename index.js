@@ -32,7 +32,9 @@ const cargarProductos = () => {
 
 
 const verProfuctos = () => {
+
     let buscar = prompt("ingrese el producto que desee buscar. De caso de querer terminar ingrese 'fin': ")
+    
     while (buscar != "fin") {
         let exsiste = ArrayProductos.includes(buscar)
         if (exsiste == "true") {
@@ -55,17 +57,24 @@ const descuento = (precioTotal, desc) => { return desc * precioTotal / 100 };
 
 const precioFinal = (precioTotal, impuestoIva, descuento) => { return precioTotal + impuestoIva - descuento };
 
+
 const calcularPrecio = () => {
+
     let cargar = prompt("desea calcular el valor final se un producto(si/no): ")
+
     while (cargar == "si") {
         let producto = prompt("ingrese el producto: ")
         let cantidad = parseInt(prompt("ingrese la cantidad: "))
+
         precioTotal = producto.precio * cantidad
+
         desc = parseInt(prompt("ingrese le porcentaje del descuento a realizar: "))
         console.log(averiguar());
         cargar = prompt("desea calcular el valor final de un producto(si/no): ")
     }
 }
+
+
 const averiguar = () => {
 
     let pregBuscar = prompt("ingrese eque valor desea conocer(impuesto-IVA, descuento, precio final). En caso de querer terminar ingrese 'no': ")
@@ -88,12 +97,15 @@ const averiguar = () => {
 }
 
 const pagoCuotas = () => {
+
     let rta = prompt("desea calcular un pago (si/no): ")
 
     while (rta == "si") {
         let precio = parseInt(prompt("ingrese el precio del producto: "))
         let cantidad = parseInt(prompt("ingrese la cantidad: "))
+
         precioTotal = precio * cantidad
+
         let cuotas = parseInt(prompt("ingrese en cuantas cuotas lo va a pagar(1/2/3): "))
         if (cuotas == 1) {
             alert("el precio final a pagar es de: " + precio)
@@ -117,12 +129,15 @@ while (opcion < 5) {
     switch (opcion) {
         case 1:
             verProfuctos();
+            break;
         case 2:
             calcularPrecio();
+            break;
         case 3:
             pagoCuotas();
+            break;
         case 4:
-            break;    
+            break;
     }
     let opcion = parseInt(prompt("ingrese la opcion que desee cargar: \n 1-ver productos, \n 2-calcular precio en efectivo, \n 3-calcular precio en cuptas 4-salir"))
 
