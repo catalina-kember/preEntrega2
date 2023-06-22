@@ -63,10 +63,13 @@ const calcularPrecio = () => {
     let cargar = prompt("desea calcular el valor final se un producto(si/no): ")
 
     while (cargar == "si") {
-        let producto = prompt("ingrese el producto: ")
+        let producto = prompt("ingrese el producto (mandalac, mandalam, mandalag, canastab, canastam, canastag): ")
         let cantidad = parseInt(prompt("ingrese la cantidad: "))
 
-        precioTotal = producto.precio * cantidad
+        const productoBuscar = ArrayProductos.find(producto)
+        const precioProducto = productoBuscar.precio
+
+        let precioTotal = precioProducto * cantidad
 
         desc = parseInt(prompt("ingrese le porcentaje del descuento a realizar: "))
         console.log(averiguar());
